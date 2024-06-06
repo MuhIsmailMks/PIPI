@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+
+:root{ 
+    --font-mont:  "Montserrat", sans-serif;
+    --font-rock:  "RocknRoll One", sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.montserrat_font{
+    font-family: var(--font-mont);
+}
+
+.rock_font{
+    font-family: var(--font-rock);
+}
+
+body{ 
+    font-family: "Londrina Solid", sans-serif;
+}
+  
+.container_site{
+    background: linear-gradient(177.31deg, #B1EE35 -84.53%, #90C623 97.76%);
+}
+
+/* navbar */
+.text_nav{
+    text-shadow: -1px -2px 0 #658E12;
+}
+
+/* menu button */
+.menu-button {
+    display: none;
+    overflow: hidden;
+
+    height: 35px;
+    width: 45px;
+
+    position: relative; 
+
+    align-items: center;
+}
+
+.menu-button span {
+        width: 100%;
+        height: 3px;
+        background-color: rgb(0, 0, 0);
+        position: absolute;
+        transition: all .3s ease-in-out;
+    }
+
+    .menu-button span:nth-child(1) {
+        top: 0;
+    }
+
+    .menu-button span:nth-child(2) {
+        position: relative;
+    }
+
+    .menu-button span:nth-child(3) {
+        bottom: 0;
+    }
+
+    .menu-button.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 1rem;
+    }
+
+    .menu-button.active span:nth-child(2) {
+        width: 0%;
+    }
+
+    .menu-button.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        bottom: 1rem;
+    }
+
+/* animation */
+.float_animation{
+    animation: float 2s ease-in-out infinite;
+}
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% { 
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+.cloud_animation{
+    animation: cloud 35s ease-in-out infinite; 
+}
+
+.cloud_animation_reverse{
+    animation: cloud_reverse 35s ease-in-out infinite;
+}
+
+@keyframes cloud {
+	0%,100% {
+		transform: translateX(0px);
+	}
+	50% { 
+		transform: translateX(-100px);
+	} 
+}
+
+@keyframes cloud_reverse {
+	0%,100% {
+		transform: translateX(0px);
+	}
+	50% { 
+		transform: translateX(100px);
+	} 
+}
+
+
+/* marquee text slider */
+.marquee {
+    display: flex;
+    flex-direction: row;
+    font-size: 31.57px;
+    margin-top: var(--v-medium);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    background-color: #A1DD28;
+    gap: 0;
+    padding-top: .5rem;
+
+    border-top: 3px solid rgba(0, 0, 0, 0.651);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.651);
+}
+
+.marquee-left .marquee-el {
+    animation-direction: reverse;
+}
+
+.marquee-el {
+    align-items: center;
+    animation: scroll 100s linear 0s infinite;
+    animation-delay: 0s;
+    animation-play-state: running;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    flex-direction: row;
+    min-width: 100%;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    z-index: 1;
+}
+
+.marquee-el_reverse {
+    align-items: center;
+    animation: scroll 100s linear 0s infinite;
+    animation-delay: 0s;
+    animation-play-state: running;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    flex-direction: row;
+    min-width: 100%;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    z-index: 1;
+}
+
+.marquee span{
+    height: 100%; 
+    color: white;
+    font-family: var(--font-mont);
+    font-size: 24px;
+    padding: 0 2.5rem;
+}
+ 
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    } 100%{
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll_reverse{
+    0%{
+        transform: translateX(100%);
+    } 100%{
+        transform: translateX(0%);
+    }
+}
+
+
+
+/* media queries */
+@media screen and (max-width:1024px){
+    .menu-button{
+        display: flex;
+        position: absolute;
+        right: 0; 
+    }
+
+}
+
+
+@media screen and (max-width:752px) {
+    .text_nav{
+        text-shadow: -.5px -1px 0 #658E12;
+    }
+    
+}
+
+@media screen and (max-width:500px) { 
+    .menu-button {
+        width: 27px;
+        height: 23px;
+    }
+
+    .menu-button.active span:nth-child(1){
+           top: .6rem; 
+    }
+
+    .menu-button.active span:nth-child(3){
+                bottom: .7rem;
+    }
+    
+    .marquee span{ 
+        font-size: 34px; 
+    } 
+
+    .cloud_animation{
+        animation: cloud 49s ease-in-out infinite; 
+    }
+    
+    .cloud_animation_reverse{
+        animation: cloud_reverse 49s ease-in-out infinite;
+    }
+} 
+
+
