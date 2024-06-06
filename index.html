@@ -203,7 +203,7 @@
         </div>
 
         <!-- about section -->
-        <section id="about" class="relative w-full h-[800px] lg:h-[713px] flex justify-between md:items-center ">
+        <section id="about" class="relative hidden w-full h-[800px] lg:h-[713px] flex justify-between md:items-center ">
 
             <div class="image absolute xl:relative h-full w-full xl:w-[50%]">
                <div class="absolute left-0 top-0 w-full xl:w-[2000px] h-full">
@@ -284,7 +284,7 @@
         </section>
 
         <!-- marquee -->
-        <div class="marquee_container relative  left-0 bottom-0 w-full h-auto">
+        <div class="marquee_container hidden relative  left-0 bottom-0 w-full h-auto">
             <div class="marquee bordered pb-[.7rem] marquee-left">
                 <div class="marquee-el" style="animation-duration: 25s;">
                     <p>
@@ -303,10 +303,10 @@
 
         <!-- roadmap section -->
         <section id="roadmap"
-            class="relative  w-full max-w-[100%] h-[900px] lg:h-[1005px] flex justify-center md:items-center flex-col">
+            class="relative hidden w-full max-w-[100%] h-[900px] lg:h-[1005px] flex justify-center md:items-center flex-col">
 
             <!-- background -->
-            <div class="bg w-full max-w-[100%] overflow-hidden h-full absolute left-0 top-0 z-0">
+            <div class="bg w-full max-w-[100%] hidden overflow-hidden h-full absolute left-0 top-0 z-0">
                 <img src="./assets/images/cloud.png" alt=""
                     class="h-auto hidden md:block object-contain cloud_animation_reverse w-[170px] md:w-[240px] top-[5%] absolute left-[-40px] rotate-[20deg]">
                 <img src="./assets/images/cloud.png" alt=""
@@ -416,7 +416,7 @@
         </section>
 
         <!-- marquee -->
-        <div class="marquee_container relative left-0 bottom-0 w-full h-auto">
+        <div class="marquee_container hidden relative left-0 bottom-0 w-full h-auto">
             <div class="marquee bordered pb-[.7rem] marquee-left">
                 <div class="marquee-el" style="animation-duration: 25s;">
                     <p>
@@ -435,7 +435,7 @@
 
         <!-- join us section -->
         <section id="join"
-            class="h-[600px] xl:h-[604px] relative w-full flex flex-col items-center justify-center gap-[2rem] xl:gap-0">
+            class="h-[600px] hidden xl:h-[604px] relative w-full flex flex-col items-center justify-center gap-[2rem] xl:gap-0">
 
             <!-- background -->
             <div class="bg w-full max-w-[100%] overflow-hidden h-full absolute left-0 top-0 z-0">
@@ -562,7 +562,7 @@
 
          // autoplay video 
          document.addEventListener("DOMContentLoaded", function() {
-    let videoServices = document.querySelectorAll('.videoAutoPlay');
+    let videoServices = document.querySelector('.videoAutoPlay');
 
     function playVideo(video) {
         if (video.paused) {
@@ -571,29 +571,26 @@
             });
         }
     }
- 
-    for (let video of videoServices) { 
-        video.addEventListener('play', function() {
-            video.muted = true;
+  
+        videoServices.addEventListener('play', function() {
+            videoServices.muted = true;
         });
  
-        video.addEventListener('loadeddata', function() {
+        videoServices.addEventListener('loadeddata', function() {
             playVideo(video);
         });
  
-        video.muted = true;
-        video.controls = false;
-    }
+        videoServices.muted = true;
+        videoServices.controls = false; 
 });
  
 document.addEventListener('DOMContentLoaded', function() {
-    let videos = document.querySelectorAll('.videoAutoPlay');
-    videos.forEach(function(video) {
-        video.addEventListener('canplaythrough', function() {
-            video.play();
+    let videos = document.querySelector('.videoAutoPlay'); 
+        videos.addEventListener('canplaythrough', function() {
+            videos.play();
         }, true);
-    });
-});
+    }); 
+
     </script>
 </body>
 
