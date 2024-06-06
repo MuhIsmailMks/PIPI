@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/hero_image.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo.png">
     
     <!-- aos animation -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -604,23 +604,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // button music
-        const audioElement = document.getElementById('background-music');
-        document.addEventListener('DOMContentLoaded', function() {
-        const btnMusic = document.getElementById("toggle-music-btn")
-        let isMusicPlaying = false; 
+    document.addEventListener('DOMContentLoaded', function() {
+    const audioElement = document.getElementById('background-music');
+    audioElement.loop = true; // Menambahkan properti loop
 
-            btnMusic.addEventListener('click', () => {
-            btnMusic.querySelector('span').classList.toggle('hidden');
-            if (isMusicPlaying === false) { 
-                audioElement.play();
-                isMusicPlaying = true;  
-            } else { 
-                audioElement.pause();
-                isMusicPlaying = false;   
-            }
-            })
+    const btnMusic = document.getElementById("toggle-music-btn");
+    let isMusicPlaying = false; 
 
-})
+    btnMusic.addEventListener('click', () => {
+        btnMusic.querySelector('span').classList.toggle('hidden');
+        if (isMusicPlaying === false) { 
+            audioElement.play();
+            isMusicPlaying = true;  
+        } else { 
+            audioElement.pause();
+            isMusicPlaying = false;   
+        }
+    });
+});
+
 
 
     </script>
