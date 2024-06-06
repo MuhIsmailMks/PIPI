@@ -27,7 +27,8 @@ body{
 }
   
 .container_site{
-    background: linear-gradient(177.31deg, #B1EE35 -84.53%, #90C623 97.76%);
+    /* background: linear-gradient(177.31deg, #B1EE35 -84.53%, #90C623 97.76%); */
+    background-color: #8e1212;
 }
 
 /* navbar */
