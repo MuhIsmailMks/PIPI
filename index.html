@@ -26,6 +26,13 @@
  
     <div class="container_site max-w-[100%] relative w-full h-auto min-h-[100vh] overflow-hidden">
 
+        <div class="container-music w-[100px]  z-[9999] h-[200px] bottom-0 right-[1.5rem] md:right-[2rem] max-w-[100%] overflow-hidden fixed">
+            <button id="toggle-music-btn" class="event-music  bottom-[30px] right-0 absolute w-[60px] h-[60px] bg-[#cc1c1c] flex justify-center items-center rounded-full border-2 border-white">
+                <img src="./assets/images/sound.svg" alt="sound icon" class="w-[50%] h-auto object-contain">
+                <span class="absolute h-[100%] w-[4px] bg-white rotate-45"></span>
+            </button>
+        </div>
+
         <!-- navbar -->
         <nav
             class="w-full z-[999]  justify-center h-[100px] xl:h-[140px] absolute left-0 top-0 max-w-[100%]  flex items-center xl:px-[3rem]">
@@ -39,11 +46,11 @@
 
                    
                     <ul class="flex items-center absolute opacity-0 xl:opacity-100 xl:relative gap-[1rem] link_none">
-                        <li class="list-none"><a href="#about"
+                        <li class="list-none"><a target="_blank" href="https://web.telegram.org/"
                                 class="text-[#FFF] text_nav text-[30px] tracking-[1px]">Telegram</a></li>
-                        <li class="list-none"><a href="#join"
+                        <li class="list-none"><a href="https://x.com/" target="_blank"
                                 class="text-[#FFF] text_nav text-[30px] tracking-[1px]">Twitter</a></li>
-                        <li class="list-none"><a href="#join"
+                        <li class="list-none"><a target="_blank" href="https://web.telegram.org/"
                                 class="text-[#FFF] text_nav text-[30px] tracking-[1px]">Etherscan</a></li>
                     </ul>
 
@@ -77,14 +84,14 @@
             <div
                 class="menu absolute hidden top-[100%] left-[3rem] w-[190px] h-[190px] flex justify-center rounded-[12px] bg-[#BD1A20]">
                 <ul class="flex items-center  relative gap-[2rem] link_none flex-col justify-center">
-                    <li class="list-none"><a href="#about"
+                    <li class="list-none"><a target="_blank" href="https://web.telegram.org/"
                             class=" text-[#FFF] text_nav text-[21px] md:text-[30px] tracking-[1px]">Telegram</a>
                     </li>
                     <li class="list-none">
-                        <a href="#join"
+                        <a href="https://x.com" target="_blank"
                             class=" text-[#FFF] text_nav text-[21px] md:text-[30px] tracking-[1px]">Twitter</a>
                     </li>
-                    <li class="list-none"><a href="#about"
+                    <li class="list-none"><a target="_blank" href="https://web.telegram.org/"
                         class=" text-[#FFF] text_nav text-[21px] md:text-[30px] tracking-[1px]">Etherscan</a></li>
                             
                 </ul>
@@ -99,8 +106,8 @@
             <img src="./assets/images/bg_hero.png" alt="" class="w-auto left-0 top-[100px] h-[400px] xl:h-[700px] object-cover absolute z-[0]">
 
             <!-- video -->
-            <div class="bg absolute w-full h-full left-0 top-0 z-[0] max-w-[100%] overflow-hidden flex justify-center items-end"> 
-                <video class="videoAutoPlay absolute bottom-0 w-[120vw] h-full xl:h-full object-cover opacity-[0.03] min-[1200px]:opacity-[0.05]" autoplay loop muted playsinline>
+            <div class="bg absolute hidden w-full h-full left-0 top-0 z-[0] max-w-[100%] overflow-hidden flex justify-center items-end"> 
+                <video class="videoAutoPlay absolute bottom-0 w-[120vw] h-full xl:h-full object-cover opacity-[0.03] min-[1200px]:opacity-[0.09]" autoplay loop muted playsinline>
                     <source src="./assets/images/CSP.mp4" type="video/mp4"> 
                 </video>
             </div> 
@@ -518,6 +525,10 @@
 
     </div>
 
+    <audio  id="background-music" loop  >
+        <source src="./assets/Yi Jian Mei (xue hua piao piao bei feng xiao xiao).mp3" type="audio/mpeg"> 
+    </audio>
+
     <!-- aos js scroll animation -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
@@ -590,6 +601,27 @@ document.addEventListener('DOMContentLoaded', function() {
             videos.play();
         }, true);
     }); 
+
+
+    // button music
+        const audioElement = document.getElementById('background-music');
+        document.addEventListener('DOMContentLoaded', function() {
+        const btnMusic = document.getElementById("toggle-music-btn")
+        let isMusicPlaying = false; 
+
+            btnMusic.addEventListener('click', () => {
+            btnMusic.querySelector('span').classList.toggle('hidden');
+            if (isMusicPlaying === false) { 
+                audioElement.play();
+                isMusicPlaying = true;  
+            } else { 
+                audioElement.pause();
+                isMusicPlaying = false;   
+            }
+            })
+
+})
+
 
     </script>
 </body>

@@ -32,11 +32,19 @@ body{
 
 /* navbar */
 .text_nav{
-    text-shadow: -1px -2px 0 #658E12;
+    text-shadow: -1px -2px 0 #8e1212;
 }
 
 .buy_btn{
     box-shadow: 2px 3px 0px 0px #FFFFFF;
+}
+
+nav li a{
+    transition: .2s ease-in-out ;
+}
+nav li:hover a{
+    color: #cc1c1c; 
+    text-shadow: -1px -2px 0 #8e1212;
 }
 
 /* menu button */
